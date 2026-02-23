@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,17 +29,15 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'subclimatic-sherri-nonprovocatively.ngrok-free.dev',
-    '.ngrok-free.dev',  # Allow all ngrok-free.dev subdomains
-    '.ngrok.io',  # Allow all ngrok.io subdomains (for paid ngrok)
-    'testtttttt-kf9v.onrender.com'
+    '.onrender.com',
+    'devops10-ass02-ostad-batch-09.onrender.com',
 ]
 
 # CSRF trusted origins for ngrok
 # Note: Django doesn't support wildcards in CSRF_TRUSTED_ORIGINS
 # If you get a new ngrok domain, add it here
 CSRF_TRUSTED_ORIGINS = [
-    'https://subclimatic-sherri-nonprovocatively.ngrok-free.dev',
+    'https://*.onrender.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
 ]
@@ -58,6 +57,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -132,6 +132,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
