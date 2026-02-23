@@ -135,7 +135,53 @@ python manage.py test
 
 2. **Static Files**: This project uses Tailwind CSS via CDN, so no static file collection is needed for development.
 
+## Live Deployment
+
+🚀 **The application is live and publicly accessible at:**
+
+🔗 **[https://devops10-ass02-ostad-batch-09.onrender.com/](https://devops10-ass02-ostad-batch-09.onrender.com/)**
+
+### Deployment Details
+
+| Detail | Info |
+|--------|------|
+| **Hosting Provider** | Render |
+| **Runtime** | Python 3 |
+| **WSGI Server** | Gunicorn |
+| **Static Files** | WhiteNoise |
+| **Database** | SQLite |
+
+### How to Run Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/shakil2cgit/devops10_Ass02_Ostad_batch-09.git
+   cd devops10_Ass02_Ostad_batch-09
+   ```
+
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate   # On Windows
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
+
+5. Start the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+6. Open your browser at: `http://127.0.0.1:8000/`
+
 ## License
 
 This project is open source and available for educational purposes.
-
